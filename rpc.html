@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors!</title>
+</head>
+<body>
+    <script>
+        var userScore = 0;
+        var compScore = 0;
+        var plays = ["rock", "paper", "scissors"]
+        var round = 1;
+    
+        alert("Rock, Paper, Scissors game is starting! Winner out of 10 rounds.");
+
+        for (var i = 0; i < 10;) {
+            var userPlay = prompt("Round " + round + " Your Move: rock, paper or scissors?");
+            var ran = Math.floor(Math.random()* 3);
+            var compPlay = plays[ran]
+
+
+            if (userPlay.toLowerCase().trim() === "rock" || userPlay.toLowerCase().trim() === "paper" ||userPlay.toLowerCase().trim() === "scissors" ) {
+                if (userPlay.toLowerCase().trim() === compPlay) {
+                    alert("Tie. You and the computer chose " + userPlay);
+                } else if (userPlay.toLowerCase().trim() === "rock" && compPlay === "scissors" || userPlay.toLowerCase().trim() === "paper" && compPlay === "rock" || userPlay.toLowerCase().trim() === "scissors" && compPlay === "paper") {
+                    alert("You win. You chose " + userPlay + " the computer chose " + compPlay);
+                    userScore = userScore + 1;
+                } else {
+                    alert("You lose. You chose " + userPlay + " the computer chose " + compPlay);
+                    compScore = compScore + 1;
+                }
+                
+                alert("Score: User = " + userScore + " Computer = " + compScore);
+                round = round + 1;
+                i=i+1;
+
+            } else {
+                alert("Invalid entry.")
+                //var userPlay = prompt("Round " + round + " Your Move: rock, paper or scissors?");
+            }
+        }
+          if (userScore < compScore) {
+              alert("You loss. Final score - User: " + userScore + " Computer: " + compScore);
+          } else if (userScore > compScore){
+            alert("You win! Final score - User: " + userScore + " Computer: " + compScore);
+          } else {
+            alert("Tie. Final score - User: " + userScore + " Computer: " + compScore)
+          }
+
+    </script>
+</body>
+</html>
